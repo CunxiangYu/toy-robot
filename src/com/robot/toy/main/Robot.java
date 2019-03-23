@@ -4,7 +4,7 @@ public class Robot {
     private Position position;
 
     public void move() {
-        System.out.println("Robot moved");
+        position = position.nextPosition();
     }
 
     public void rotateLeft() {

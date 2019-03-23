@@ -2,8 +2,7 @@ package com.robot.toy.main;
 
 import com.robot.toy.main.exception.ToyRobotException;
 
-import static com.robot.toy.main.Position.MAX_POSITION;
-import static com.robot.toy.main.Position.MIN_POSITION;
+import static com.robot.toy.main.Position.*;
 
 public class Game {
 
@@ -66,18 +65,20 @@ public class Game {
     }
 
     private void placeRobot(int positionX, int positionY, FaceDirection faceDirection) throws ToyRobotException {
-        if (positionX < MIN_POSITION || positionX > MAX_POSITION || positionY < MIN_POSITION || positionY > MAX_POSITION) {
+        Position newPosition = new Position(positionX, positionY, faceDirection);
+        if (!isValidPosition(newPosition)) {
             throw new ToyRobotException("Invalid Position");
         }
 
-        robot.setPosition(new Position(positionX, positionY, faceDirection));
+        robot.setPosition(newPosition);
     }
 
     private void report() {
         Position currentPosition = robot.getPosition();
+        int x = currentPosition.getX();
+        int y = currentPosition.getY();
+        FaceDirection faceDirection = currentPosition.getFaceDirection();
 
-        System.out.println("Current X: " + currentPosition.getX());
-        System.out.println("Current Y: " + currentPosition.getY());
-        System.out.println("Current Face Direction: " + currentPosition.getFaceDirection());
+        System.out.println("Current position: " + x + "," + y + "," + faceDirection);
     }
 }

@@ -9,10 +9,43 @@ public class Position {
     private int y;
     private FaceDirection faceDirection;
 
+    public static boolean isValidPosition(Position position) {
+        int positionX = position.getX();
+        int positionY = position.getY();
+
+        if (positionX < MIN_POSITION || positionX > MAX_POSITION
+                || positionY < MIN_POSITION || positionY > MAX_POSITION
+        ) {
+            return false;
+        }
+
+        return true;
+    }
+
     public Position(int x, int y, FaceDirection faceDirection) {
         this.x = x;
         this.y = y;
         this.faceDirection = faceDirection;
+    }
+
+    public Position nextPosition() {
+        Position nextPosition = new Position(x, y, faceDirection);
+        switch (this.faceDirection) {
+            case NORTH:
+                nextPosition.move(0, 1);
+                break;
+            case WEST:
+                nextPosition.move(-1, 0);
+                break;
+            case SOUTH:
+                nextPosition.move(0, -1);
+                break;
+            case EAST:
+                nextPosition.move(1, 0);
+                break;
+        }
+
+        return isValidPosition(nextPosition) ? nextPosition : this;
     }
 
     public int getX() {
@@ -29,5 +62,10 @@ public class Position {
 
     public FaceDirection getFaceDirection() {
         return this.faceDirection;
+    }
+
+    private void move(int x, int y) {
+        this.x = this.x + x;
+        this.y = this.y + y;
     }
 }
