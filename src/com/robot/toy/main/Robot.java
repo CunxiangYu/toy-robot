@@ -1,9 +1,7 @@
 package com.robot.toy.main;
 
 public class Robot {
-    private int positionX;
-    private int positionY;
-    private FaceDirection faceDirection;
+    private Position position;
 
     public void move() {
         System.out.println("Robot moved");
@@ -17,4 +15,11 @@ public class Robot {
         System.out.println("Robot rotated to right");
     }
 
+    public void setPosition(Position position) {
+        this.position = position;
+    }
+
+    public Position getPosition() {
+        return this.position;
+    }
 }

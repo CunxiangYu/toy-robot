@@ -4,6 +4,9 @@ import com.robot.toy.main.exception.ToyRobotException;
 
 public class Game {
 
+    private static final int MIN_POSITION = 0;
+    private static final int MAX_POSITION = 4;
+
     private Robot robot;
 
     public Game(Robot robot) {
@@ -38,7 +41,7 @@ public class Game {
             } catch (Exception e) {
                 throw new ToyRobotException("Invalid Command");
             }
-            placeRobot();
+            placeRobot(positionX, positionY, faceDirection);
         }
 
         if (isRobotOnTable()) {
@@ -61,14 +64,22 @@ public class Game {
     }
 
     private boolean isRobotOnTable() {
-        return false;
+        return robot.getPosition() != null;
     }
 
-    private void placeRobot() {
-        System.out.println("Robot placed");
+    private void placeRobot(int positionX, int positionY, FaceDirection faceDirection) throws ToyRobotException {
+        if (positionX < MIN_POSITION || positionX > MAX_POSITION || positionY < MIN_POSITION || positionY > MAX_POSITION) {
+            throw new ToyRobotException("Invalid Position");
+        }
+
+        robot.setPosition(new Position(positionX, positionY, faceDirection));
     }
 
     private void report() {
-        System.out.println("Report position");
+        Position currentPosition = robot.getPosition();
+
+        System.out.println("Current X: " + currentPosition.getX());
+        System.out.println("Current Y: " + currentPosition.getY());
+        System.out.println("Current Face Direction: " + currentPosition.getFaceDirection());
     }
 }
