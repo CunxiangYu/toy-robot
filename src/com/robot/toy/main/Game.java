@@ -2,18 +2,16 @@ package com.robot.toy.main;
 
 import com.robot.toy.main.exception.ToyRobotException;
 
-public class Game {
+import static com.robot.toy.main.Position.MAX_POSITION;
+import static com.robot.toy.main.Position.MIN_POSITION;
 
-    private static final int MIN_POSITION = 0;
-    private static final int MAX_POSITION = 4;
+public class Game {
 
     private Robot robot;
 
     public Game(Robot robot) {
         this.robot = robot;
     }
-
-
 
     public void executeCommand(String userInput) throws ToyRobotException {
         String[] args = userInput.split(" ");

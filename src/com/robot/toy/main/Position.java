@@ -1,6 +1,10 @@
 package com.robot.toy.main;
 
 public class Position {
+
+    public static final int MIN_POSITION = 0;
+    public static final int MAX_POSITION = 4;
+
     private int x;
     private int y;
     private FaceDirection faceDirection;
