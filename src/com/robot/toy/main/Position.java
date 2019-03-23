@@ -5,8 +5,6 @@ public class Position {
     private int y;
     private FaceDirection faceDirection;
 
-    public Position() {}
-
     public Position(int x, int y, FaceDirection faceDirection) {
         this.x = x;
         this.y = y;
@@ -19,6 +17,10 @@ public class Position {
 
     public int getY() {
         return this.y;
+    }
+
+    public void setFaceDirection(FaceDirection faceDirection) {
+        this.faceDirection = faceDirection;
     }
 
     public FaceDirection getFaceDirection() {

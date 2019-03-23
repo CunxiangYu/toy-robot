@@ -8,11 +8,13 @@ public class Robot {
     }
 
     public void rotateLeft() {
-        System.out.println("Robot rotated to left");
+        FaceDirection leftDirection = FaceDirection.leftDirectionOf(position.getFaceDirection());
+        position.setFaceDirection(leftDirection);
     }
 
     public void rotateRight() {
-        System.out.println("Robot rotated to right");
+        FaceDirection rightDirection = FaceDirection.rightDirectionOf(position.getFaceDirection());
+        position.setFaceDirection(rightDirection);
     }
 
     public void setPosition(Position position) {
@@ -20,6 +22,6 @@ public class Robot {
     }
 
     public Position getPosition() {
-        return this.position;
+        return position;
     }
 }
