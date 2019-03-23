@@ -1,10 +1,12 @@
 package com.robot.toy.main;
 
+import com.robot.toy.main.enums.FaceDirection;
+
 public class Robot {
     private Position position;
 
     public void move() {
-        position = position.nextPosition();
+        setPosition(position.nextPosition());
     }
 
     public void rotateLeft() {

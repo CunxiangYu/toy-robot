@@ -1,6 +1,8 @@
 package com.robot.toy.main;
 
-import com.robot.toy.main.exception.ToyRobotException;
+import com.robot.toy.main.enums.Command;
+import com.robot.toy.main.enums.FaceDirection;
+import com.robot.toy.main.exceptions.ToyRobotException;
 
 import static com.robot.toy.main.Position.*;
 

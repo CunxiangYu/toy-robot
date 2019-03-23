@@ -1,5 +1,7 @@
 package com.robot.toy.main;
 
+import com.robot.toy.main.enums.FaceDirection;
+
 public class Position {
 
     public static final int MIN_POSITION = 0;

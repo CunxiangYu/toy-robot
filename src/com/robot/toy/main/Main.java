@@ -1,6 +1,6 @@
 package com.robot.toy.main;
 
-import com.robot.toy.main.exception.ToyRobotException;
+import com.robot.toy.main.exceptions.ToyRobotException;
 
 import java.util.Scanner;
 
@@ -10,8 +10,8 @@ public class Main {
 
         Robot robot = new Robot();
         Game game = new Game(robot);
-        Scanner scan = new Scanner(System.in);
 
+        Scanner scan = new Scanner(System.in);
         while (true) {
             String input = scan.nextLine();
             try {

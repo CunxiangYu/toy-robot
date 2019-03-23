@@ -1,4 +1,4 @@
-package com.robot.toy.main.exception;
+package com.robot.toy.main.exceptions;
 
 public class ToyRobotException extends Exception {
 

@@ -1,4 +1,4 @@
-package com.robot.toy.main;
+package com.robot.toy.main.enums;
 
 public enum FaceDirection {
     NORTH,
