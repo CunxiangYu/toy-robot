@@ -14,13 +14,19 @@ public class GameTest {
         Robot robot = new Robot();
         Game game = new Game(robot);
 
-        // Robot will not do anything without being placed on table
-        game.executeCommand("MOVE");
-        Assertions.assertEquals(null, robot.getPosition());
-        game.executeCommand("LEFT");
-        Assertions.assertEquals(null, robot.getPosition());
-        game.executeCommand("RIGHT");
-        Assertions.assertEquals(null, robot.getPosition());
+        // Exception is thrown if user tries to manipulate robot before placing it on table
+        Assertions.assertThrows(ToyRobotException.class, () -> {
+            game.executeCommand("MOVE");
+        });
+        Assertions.assertThrows(ToyRobotException.class, () -> {
+            game.executeCommand("LEFT");
+        });
+        Assertions.assertThrows(ToyRobotException.class, () -> {
+            game.executeCommand("RIGHT");
+        });
+        Assertions.assertThrows(ToyRobotException.class, () -> {
+            game.executeCommand("REPORT");
+        });
 
         // Robot moves and rotates when placed on table
         game.executeCommand("PLACE 0,1,EAST");

@@ -58,6 +58,8 @@ public class Game {
                     report();
                     break;
             }
+        } else {
+            throw new ToyRobotException("Sorry robot is not on table");
         }
 
     }
@@ -71,8 +73,8 @@ public class Game {
         if (!isValidPosition(newPosition)) {
             throw new ToyRobotException("Invalid Position");
         }
-
         robot.setPosition(newPosition);
+        System.out.println("Robot is on table");
     }
 
     private void report() {
