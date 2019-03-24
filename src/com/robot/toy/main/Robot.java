@@ -5,6 +5,12 @@ import com.robot.toy.main.enums.FaceDirection;
 public class Robot {
     private Position position;
 
+    public Robot() {}
+
+    public Robot(Position position) {
+        this.position = position;
+    }
+
     public void move() {
         setPosition(position.nextPosition());
     }
