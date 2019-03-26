@@ -1,16 +1,12 @@
 package com.robot.toy.test;
 
 import com.robot.toy.main.Main;
-import static com.robot.toy.main.Main.main;
-
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.io.*;
 
 public class ToyRobotSimulationTest {
-    private final ByteArrayOutputStream out = new ByteArrayOutputStream();
-    private final ByteArrayOutputStream err = new ByteArrayOutputStream();
 
     @Test
     public void testToyRobotApp() {
